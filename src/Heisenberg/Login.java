@@ -7,6 +7,9 @@
 package Heisenberg;
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -133,9 +136,16 @@ public class Login extends javax.swing.JFrame {
                 } catch (Exception e) {
                     
                 }
-                Login sp = new Login();
+                
+                try {
+                    Login sp = new Login();
                 sp.getContentPane().setBackground(Color.white);
                 sp.setVisible(true);
+                    Connection conn = Conexion.GetConnection();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                
             }
         });
     }

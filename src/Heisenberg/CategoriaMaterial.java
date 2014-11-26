@@ -19,15 +19,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author DanDesktop
  */
-public class Materiales extends javax.swing.JFrame {
+public class CategoriaMaterial extends javax.swing.JFrame {
 
     /**
-     * Creates new form MaterialesQuimicos
+     * Creates new form CategoriaMaterial
      */
-    public Materiales() {
+    public CategoriaMaterial() {
         initComponents();
         cargarMateriales();
-        fillCombo();
     }
 
     /**
@@ -42,20 +41,13 @@ public class Materiales extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTxtFldId = new javax.swing.JTextField();
-        jTxtFldNombre = new javax.swing.JTextField();
-        jTxtFldComposicion = new javax.swing.JTextField();
-        jTxtFldEstante = new javax.swing.JTextField();
-        jTxtFldUnidades = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTxtFldCant = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        JCBCat = new javax.swing.JComboBox();
+        jTxtFldCat = new javax.swing.JTextField();
+        jTxtFldNombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTxtDesc = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jBtnNew = new javax.swing.JButton();
         jBtnDelete = new javax.swing.JButton();
@@ -65,13 +57,13 @@ public class Materiales extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Estructura", "Cantidad Disponible"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -81,77 +73,50 @@ public class Materiales extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel3.setText("Nombre");
+        jLabel1.setText("ID Categoria");
 
-        jLabel4.setText("Composición");
+        jLabel2.setText("Nombre");
 
-        jLabel5.setText("Estante");
+        jLabel3.setText("Descripcion");
 
-        jLabel6.setText("Unidades Disponibles");
-
-        jLabel7.setText("Cantidad en Gramos");
-
-        jLabel1.setText("ID");
-
-        jLabel2.setText("Categoria");
+        jTxtDesc.setColumns(20);
+        jTxtDesc.setRows(5);
+        jScrollPane2.setViewportView(jTxtDesc);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTxtFldId)
-                    .addComponent(jTxtFldNombre)
-                    .addComponent(jTxtFldComposicion)
-                    .addComponent(jTxtFldEstante)
-                    .addComponent(jTxtFldUnidades)
-                    .addComponent(jTxtFldCant, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(JCBCat, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTxtFldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtFldCat, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addComponent(jScrollPane2)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTxtFldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jTxtFldCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTxtFldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTxtFldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTxtFldComposicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JCBCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTxtFldEstante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTxtFldUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTxtFldCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jBtnNew.setText("Nuevo");
@@ -168,7 +133,7 @@ public class Materiales extends javax.swing.JFrame {
             }
         });
 
-        jBtnSave.setText("Guardar Cambios");
+        jBtnSave.setText("Guardar");
         jBtnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnSaveActionPerformed(evt);
@@ -179,22 +144,22 @@ public class Materiales extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jBtnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBtnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBtnNew, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(jBtnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(35, 35, 35)
                 .addComponent(jBtnNew)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jBtnDelete)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jBtnSave)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -206,19 +171,19 @@ public class Materiales extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -228,37 +193,17 @@ public class Materiales extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        jTxtFldId.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-        jTxtFldNombre.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 1));
-        jTxtFldComposicion.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 2));
-        jTxtFldEstante.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 3));
-        jTxtFldUnidades.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 4));
-        jTxtFldCant.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 5));
-
-    }//GEN-LAST:event_jTable1MouseClicked
-
     private void jBtnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewActionPerformed
         // TODO add your handling code here:
         try {
-            String sql = "INSERT INTO Material "
-                    + "VALUES(?,?,?,?,?,?,?)";
-
-            //INSERT INTO `quimicas`.`material` 
-            //(`idMaterial`, `Nombre`, `Composicion`, `CantidadUnidad`, `CantidadGramos`, `Estante`, `CategoriaMaterial_idCategoriaMaterial`)
-            //VALUES ('1', '123', '123', '123', '123', '123', '1');
+            String sql = "Insert INTO categoriamaterial VALUES (?,?,?)";
             Connection conn = Conexion.GetConnection();
             conn.setAutoCommit(false);
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1, jTxtFldId.getText());
+            ps.setInt(1, Integer.parseInt(jTxtFldCat.getText()));
             ps.setString(2, jTxtFldNombre.getText());
-            ps.setString(3, jTxtFldComposicion.getText());
-            ps.setString(4, jTxtFldUnidades.getText());
-            ps.setString(5, jTxtFldCant.getText());
-            ps.setString(6, jTxtFldEstante.getText());
-            ps.setInt(7, JCBCat.getSelectedIndex() + 1);
+            ps.setString(3, jTxtDesc.getText());
 
             ps.executeUpdate();
 
@@ -266,7 +211,6 @@ public class Materiales extends javax.swing.JFrame {
 
             cargarMateriales();
             clearFields();
-
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -275,18 +219,18 @@ public class Materiales extends javax.swing.JFrame {
     private void jBtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeleteActionPerformed
         // TODO add your handling code here:
         try {
-            String sql = "DELETE FROM material "
-                    + "WHERE idmaterial = ?";
+            String sql = "DELETE FROM categoriaMaterial "
+                    + "WHERE idCategoriaMaterial = ?";
             Connection conn = Conexion.GetConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             conn.setAutoCommit(false);
             ps.setString(1, (String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-            ps.execute();
+            ps.executeQuery();
 
             conn.commit();
+
             cargarMateriales();
             clearFields();
-
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -295,31 +239,24 @@ public class Materiales extends javax.swing.JFrame {
     private void jBtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSaveActionPerformed
         // TODO add your handling code here:
         try {
-            String sql = "UPDATE material SET "
-                    + "idmaterial = ?, "
+            String sql = "UPDATE categoriamaterial SET "
+                    + "idcategoriamaterial = ?, "
                     + "nombre = ?, "
-                    + "composicion = ?, "
-                    + "estante = ?, "
-                    + "cantidadunidad = ?, "
-                    + "cantidadgramos = ?, "
-                    + "categoriamaterial_idcategoriamaterial = ? "
-                    + "WHERE idmaterial = ?";
-            Connection conn = Conexion.GetConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            conn.setAutoCommit(false);
+                    + "descripcion = ? "
+                    + "WHERE idcategoriamaterial = ?";
 
-            ps.setString(1, jTxtFldId.getText());
+            Connection conn = Conexion.GetConnection();
+            conn.setAutoCommit(false);
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, jTxtFldCat.getText());
             ps.setString(2, jTxtFldNombre.getText());
-            ps.setString(3, jTxtFldComposicion.getText());
-            ps.setString(4, jTxtFldEstante.getText());
-            ps.setString(5, jTxtFldUnidades.getText());
-            ps.setString(6, jTxtFldCant.getText());
-            ps.setInt(7, JCBCat.getSelectedIndex() + 1);
-            ps.setString(8, (String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+            ps.setString(3, jTxtDesc.getText());
+            ps.setString(4, (String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+
             ps.executeUpdate();
-            
             conn.commit();
-            
+
             cargarMateriales();
             clearFields();
 
@@ -328,19 +265,21 @@ public class Materiales extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBtnSaveActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        jTxtFldCat.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        jTxtFldNombre.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 1));
+        jTxtDesc.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 2));
+    }//GEN-LAST:event_jTable1MouseClicked
+
     public void cargarMateriales() {
         try {
             Connection conn = Conexion.GetConnection();
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT idmaterial, "
-                    + "nombre, "
-                    + "composicion, "
-                    + "estante, "
-                    + "cantidadunidad, "
-                    + "cantidadgramos "
-                    + "FROM material");
+            ResultSet rs = st.executeQuery("SELECT idCategoriaMaterial, Nombre, Descripcion FROM categoriamaterial");
+
             String[] columns = {
-                "ID", "Nombre", "Composicion", "Estante", "Unidades disponibles (frascos/contenedores)", "Cantidad gramos"
+                "ID", "Nombre", "Descripcion"
             };
 
             DefaultTableModel tm = new DefaultTableModel(null, columns) {
@@ -352,14 +291,13 @@ public class Materiales extends javax.swing.JFrame {
 
             while (rs.next()) {
                 String[] row = {
-                    rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)
+                    rs.getString(1), rs.getString(2), rs.getString(3)
                 };
 
                 tm.addRow(row);
             }
 
             jTable1.setModel(tm);
-
         } catch (SQLException e) {
             Logger.getLogger(this.getName()).log(Level.SEVERE, null, e.getMessage());
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -367,29 +305,9 @@ public class Materiales extends javax.swing.JFrame {
     }
 
     public void clearFields() {
-        jTxtFldCant.setText("");
-        jTxtFldComposicion.setText("");
-        jTxtFldEstante.setText("");
-        jTxtFldId.setText("");
+        jTxtDesc.setText("");
+        jTxtFldCat.setText("");
         jTxtFldNombre.setText("");
-        jTxtFldUnidades.setText("");
-    }
-
-    public void fillCombo() {
-        try {
-            Connection conn = Conexion.GetConnection();
-            String sql = "SELECT Nombre FROM categoriamaterial";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                String name = rs.getString(1);
-                JCBCat.addItem(name);
-            }
-            conn.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
     }
 
     /**
@@ -409,45 +327,38 @@ public class Materiales extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Materiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CategoriaMaterial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Materiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CategoriaMaterial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Materiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CategoriaMaterial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Materiales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CategoriaMaterial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Materiales().setVisible(true);
+                new CategoriaMaterial().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox JCBCat;
     private javax.swing.JButton jBtnDelete;
     private javax.swing.JButton jBtnNew;
     private javax.swing.JButton jBtnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTxtFldCant;
-    private javax.swing.JTextField jTxtFldComposicion;
-    private javax.swing.JTextField jTxtFldEstante;
-    private javax.swing.JTextField jTxtFldId;
+    private javax.swing.JTextArea jTxtDesc;
+    private javax.swing.JTextField jTxtFldCat;
     private javax.swing.JTextField jTxtFldNombre;
-    private javax.swing.JTextField jTxtFldUnidades;
     // End of variables declaration//GEN-END:variables
 }

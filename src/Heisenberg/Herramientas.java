@@ -32,6 +32,7 @@ public class Herramientas extends javax.swing.JFrame {
         cargarHerramientas();
         clearFields();
         fillComboCat();
+        
     }
 
     /**
@@ -67,7 +68,7 @@ public class Herramientas extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTxtDesc = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Equipo de Laboratorio");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -468,6 +469,7 @@ public class Herramientas extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Herramientas().setVisible(true);
+                
             }
         });
     }

@@ -109,6 +109,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         Menu mn = new Menu();
         mn.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -5,6 +5,10 @@
  */
 package Heisenberg;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DanMoCa14z
@@ -16,7 +20,47 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.addWindowListener(new WindowListener(){
+            @Override
+            public void windowClosing(WindowEvent e){
+                    Login login = new Login();
+                    login.setVisible(true);
+                    
+            }
+
+            @Override
+            public void windowOpened(WindowEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+                
+        });
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,7 +76,7 @@ public class Menu extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("Materiales");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +139,11 @@ public class Menu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void openMenu(){
+        Login login = new Login();
+        login.setVisible(true);
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Herramientas herr = new Herramientas();

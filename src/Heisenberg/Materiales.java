@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -88,6 +89,7 @@ public class Materiales extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Inventario Laboratorio de Químicas");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -823,10 +825,14 @@ public class Materiales extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                ImageIcon img = new ImageIcon("src/Heisenberg/HB.png");
+                
                 
                 try {
                     Thread.sleep(1000);
-                    new Materiales().setVisible(true);
+                    Materiales mats = new Materiales();
+                    mats.setIconImage(img.getImage());
+                    mats.setVisible(true);
                     Connection conn = Conexion.GetConnection();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());

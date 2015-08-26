@@ -48,15 +48,14 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
         jBtnDelete = new javax.swing.JButton();
         jBtnSave = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jTxtFldIDCat = new javax.swing.JTextField();
         jTxtFldNombre = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTxtDesc = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Categorias - Herramientas");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,8 +123,6 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
         jTxtDesc.setRows(5);
         jScrollPane2.setViewportView(jTxtDesc);
 
-        jLabel1.setText("ID Categoria");
-
         jLabel2.setText("Nombre");
 
         jLabel3.setText("Descripción");
@@ -137,26 +134,19 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTxtFldIDCat, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(jTxtFldNombre))
-                        .addContainerGap())))
+                        .addComponent(jTxtFldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(219, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTxtFldIDCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTxtFldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,7 +179,7 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -200,14 +190,14 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
     private void jBtnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewActionPerformed
         // TODO add your handling code here:
         try {
-            String sql = "INSERT INTO categoriaherramienta VALUES (?,?,?)";
+            String sql = "INSERT INTO categoriaherramienta(Nombre,Descripcion) VALUES (?,?)";
             Connection conn = Conexion.GetConnection();
             conn.setAutoCommit(false);
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setInt(1, Integer.parseInt(jTxtFldIDCat.getText()));
-            ps.setString(2, jTxtFldNombre.getText());
-            ps.setString(3, jTxtDesc.getText());
+            
+            ps.setString(1, jTxtFldNombre.getText());
+            ps.setString(2, jTxtDesc.getText());
 
             ps.executeUpdate();
 
@@ -222,7 +212,7 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        this.jTxtFldIDCat.setText((String) this.jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        
         this.jTxtFldNombre.setText((String) this.jTable1.getValueAt(jTable1.getSelectedRow(), 1));
         this.jTxtDesc.setText((String) this.jTable1.getValueAt(jTable1.getSelectedRow(), 2));
     }//GEN-LAST:event_jTable1MouseClicked
@@ -251,7 +241,6 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             String sql = "UPDATE categoriaherramienta SET "
-                    + "idcategoriaherramienta = ?, "
                     + "nombre = ?, "
                     + "descripcion = ? "
                     + "WHERE idcategoriaherramienta = ?";
@@ -260,10 +249,10 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
             conn.setAutoCommit(false);
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1, jTxtFldIDCat.getText());
-            ps.setString(2, jTxtFldNombre.getText());
-            ps.setString(3, jTxtDesc.getText());
-            ps.setString(4, (String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+            
+            ps.setString(1, jTxtFldNombre.getText());
+            ps.setString(2, jTxtDesc.getText());
+            ps.setString(3, (String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
 
             ps.executeUpdate();
 
@@ -315,10 +304,15 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
 
     public void clearFields() {
         jTxtDesc.setText("");
-        jTxtFldIDCat.setText("");
+        
         jTxtFldNombre.setText("");
     }
 
+    public void onDispose(){
+        Materiales mat = new Materiales();
+        mat.fillCombo();
+        this.dispose();
+    }
     /**
      * @param args the command line arguments
      */
@@ -358,7 +352,6 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
     private javax.swing.JButton jBtnDelete;
     private javax.swing.JButton jBtnNew;
     private javax.swing.JButton jBtnSave;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -367,7 +360,6 @@ public class CategoriaHerramienta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTxtDesc;
-    private javax.swing.JTextField jTxtFldIDCat;
     private javax.swing.JTextField jTxtFldNombre;
     // End of variables declaration//GEN-END:variables
 }

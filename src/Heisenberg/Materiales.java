@@ -5,6 +5,7 @@
  */
 package Heisenberg;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +29,10 @@ public class Materiales extends javax.swing.JFrame {
         initComponents();
         cargarMateriales();
         fillCombo();
+        jRadioButton1.doClick();
     }
+    
+    ResultSet rs1;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,25 +45,47 @@ public class Materiales extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jBtnNew = new javax.swing.JButton();
+        jBtnDelete = new javax.swing.JButton();
+        jBtnSave = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        JCBCat = new javax.swing.JComboBox();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTxtFldId = new javax.swing.JTextField();
         jTxtFldNombre = new javax.swing.JTextField();
         jTxtFldComposicion = new javax.swing.JTextField();
         jTxtFldEstante = new javax.swing.JTextField();
         jTxtFldUnidades = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jTxtFldCant = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        JCBCat = new javax.swing.JComboBox();
-        jPanel2 = new javax.swing.JPanel();
-        jBtnNew = new javax.swing.JButton();
-        jBtnDelete = new javax.swing.JButton();
-        jBtnSave = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jTxtFldNombre1 = new javax.swing.JTextField();
+        jTxtFldCant1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTxtFldUach = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTxtDesc = new javax.swing.JTextArea();
+        jCBCond = new javax.swing.JComboBox();
+        jLabel13 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -80,79 +106,6 @@ public class Materiales extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-
-        jLabel3.setText("Nombre");
-
-        jLabel4.setText("Composición");
-
-        jLabel5.setText("Estante");
-
-        jLabel6.setText("Unidades Disponibles");
-
-        jLabel7.setText("Cantidad en Gramos");
-
-        jLabel1.setText("ID");
-
-        jLabel2.setText("Categoria");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTxtFldId)
-                    .addComponent(jTxtFldNombre)
-                    .addComponent(jTxtFldComposicion)
-                    .addComponent(jTxtFldEstante)
-                    .addComponent(jTxtFldUnidades)
-                    .addComponent(jTxtFldCant, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(JCBCat, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTxtFldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTxtFldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTxtFldComposicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JCBCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTxtFldEstante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTxtFldUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTxtFldCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         jBtnNew.setText("Nuevo");
         jBtnNew.addActionListener(new java.awt.event.ActionListener() {
@@ -180,12 +133,12 @@ public class Materiales extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jBtnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBtnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBtnNew, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(jBtnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,6 +152,233 @@ public class Materiales extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel2.setText("Categoria");
+
+        jRadioButton1.setText("Materiales");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setText("Equipo");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(JCBCat, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton2)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JCBCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        jLabel3.setText("Nombre");
+
+        jLabel4.setText("Composición");
+
+        jLabel5.setText("Estante");
+
+        jLabel6.setText("Unidades Disponibles");
+
+        jLabel7.setText("Cantidad en Gramos");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTxtFldNombre)
+                    .addComponent(jTxtFldComposicion)
+                    .addComponent(jTxtFldEstante)
+                    .addComponent(jTxtFldUnidades)
+                    .addComponent(jTxtFldCant, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTxtFldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTxtFldComposicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTxtFldEstante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTxtFldUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTxtFldCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Materiales", jPanel1);
+
+        jLabel9.setText("Cantidad");
+
+        jLabel10.setText("ID Uach");
+
+        jLabel11.setText("Nombre");
+
+        jLabel12.setText("Descripción");
+
+        jTxtDesc.setColumns(20);
+        jTxtDesc.setRows(5);
+        jScrollPane2.setViewportView(jTxtDesc);
+
+        jCBCond.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Buena", "Reparación" }));
+
+        jLabel13.setText("Condiciones");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTxtFldUach, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel11))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTxtFldNombre1, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                                            .addComponent(jTxtFldCant1))))
+                                .addGap(45, 45, 45)
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCBCond, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 72, Short.MAX_VALUE)))
+                        .addContainerGap())))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap(13, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(jTxtFldUach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTxtFldNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(jCBCond, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTxtFldCant1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(4, 4, 4)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Equipo", jPanel4);
+
+        jMenu1.setText("File");
+
+        jMenuItem4.setText("jMenuItem4");
+        jMenu1.add(jMenuItem4);
+        jMenu1.add(jSeparator1);
+
+        jMenuItem3.setText("Salir ");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Editar");
+
+        jMenuItem1.setText("Materiales Categorias");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem2.setText("Equipo Categorias");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -206,10 +386,12 @@ public class Materiales extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jTabbedPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -217,11 +399,13 @@ public class Materiales extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -231,42 +415,124 @@ public class Materiales extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        jTxtFldId.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-        jTxtFldNombre.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 1));
-        jTxtFldComposicion.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 2));
-        jTxtFldEstante.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 3));
-        jTxtFldUnidades.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 4));
-        jTxtFldCant.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 5));
+        if(jRadioButton1.isSelected()){
+            jTxtFldNombre.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 1));
+            jTxtFldComposicion.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 2));
+            jTxtFldEstante.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 3));
+            jTxtFldUnidades.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 4));
+            jTxtFldCant.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 5));
+        }else{
+            //this.jTxtFldId.setText((String) this.jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+            this.jTxtFldUach.setText((String) this.jTable1.getValueAt(jTable1.getSelectedRow(), 1));
+            this.jTxtFldCant1.setText((String) this.jTable1.getValueAt(jTable1.getSelectedRow(), 3));
+            this.jTxtFldNombre1.setText((String) this.jTable1.getValueAt(jTable1.getSelectedRow(), 2));
+            this.jTxtDesc.setText((String) this.jTable1.getValueAt(jTable1.getSelectedRow(), 4));
+            this.jCBCond.setSelectedItem((String)this.jTable1.getValueAt(jTable1.getSelectedRow(), 5));
+        }
+        //jTxtFldId.setText((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        
 
     }//GEN-LAST:event_jTable1MouseClicked
 
+    public void clearFields1() {
+        jTxtDesc.setText("");
+        jTxtFldCant1.setText("");
+        //jTxtFldId.setText("");
+        jTxtFldNombre1.setText("");
+        jTxtFldUach.setText("");
+
+    }
+    private int getCatMaterial(String catName) throws SQLException{
+        String sql = "SELECT * FROM categoriaMaterial WHERE Nombre = ?";
+        Connection conn = Conexion.GetConnection();
+        conn.setAutoCommit(false);
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs;
+        
+        ps.setString(1, catName);
+        
+        
+        rs = ps.executeQuery();
+        rs.next();
+        
+        return  Integer.parseInt(rs.getString(1));
+    }
+    
+    private int getCatHerramienta(String catName) throws SQLException{
+        String sql = "SELECT * FROM categoriaHerramienta WHERE Nombre = ?";
+        Connection conn = Conexion.GetConnection();
+        conn.setAutoCommit(false);
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs;
+        
+        ps.setString(1, catName);
+        
+        
+        rs = ps.executeQuery();
+        rs.next();
+        
+        return  Integer.parseInt(rs.getString(1));
+    }
+    
     private void jBtnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewActionPerformed
         // TODO add your handling code here:
         try {
-            String sql = "INSERT INTO Material "
-                    + "VALUES(?,?,?,?,?,?,?)";
+            if(jRadioButton1.isSelected()){
+                String sql = "INSERT INTO Material(Nombre,Composicion,CantidadUnidad,CantidadGramos,Estante,categoriaMaterial_idCategoriaMaterial) "
+                    + "VALUES(?,?,?,?,?,?)";
 
-            //INSERT INTO `quimicas`.`material` 
-            //(`idMaterial`, `Nombre`, `Composicion`, `CantidadUnidad`, `CantidadGramos`, `Estante`, `CategoriaMaterial_idCategoriaMaterial`)
-            //VALUES ('1', '123', '123', '123', '123', '123', '1');
-            Connection conn = Conexion.GetConnection();
-            conn.setAutoCommit(false);
-            PreparedStatement ps = conn.prepareStatement(sql);
+                //INSERT INTO `quimicas`.`material` 
+                //(`idMaterial`, `Nombre`, `Composicion`, `CantidadUnidad`, `CantidadGramos`, `Estante`, `CategoriaMaterial_idCategoriaMaterial`)
+                //VALUES ('1', '123', '123', '123', '123', '123', '1');
+                Connection conn = Conexion.GetConnection();
+                conn.setAutoCommit(false);
+                PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1, jTxtFldId.getText());
-            ps.setString(2, jTxtFldNombre.getText());
-            ps.setString(3, jTxtFldComposicion.getText());
-            ps.setString(4, jTxtFldUnidades.getText());
-            ps.setString(5, jTxtFldCant.getText());
-            ps.setString(6, jTxtFldEstante.getText());
-            ps.setInt(7, JCBCat.getSelectedIndex() + 1);
+    //            ps.setString(1, jTxtFldId.getText());
+                ps.setString(1, jTxtFldNombre.getText());
+                ps.setString(2, jTxtFldComposicion.getText());
+                ps.setString(3, jTxtFldUnidades.getText());
+                ps.setString(4, jTxtFldCant.getText());
+                ps.setString(5, jTxtFldEstante.getText());
+                ps.setInt(6, getCatMaterial(JCBCat.getSelectedItem().toString()) );
 
-            ps.executeUpdate();
+                ps.execute();
+            
+                conn.commit();
 
-            conn.commit();
+                cargarMateriales();
+                clearFields();
+            }else{
+                String sql = "INSERT into Herramienta"
+                    +"(idInventario_UACH,Cantidad, Nombre,Condicion,Observaciones_Generales,CategoriaHErramienta_idCategoriaHerramienta) "
+                    + "VALUES(?,?,?,?,?,?)";
+                Connection conn = Conexion.GetConnection();
+                conn.setAutoCommit(false);
+                PreparedStatement ps = conn.prepareStatement(sql);
+                
+                System.out.println(ps.toString());
+            
+                ps.setInt(1, Integer.parseInt(jTxtFldUach.getText()));
+                    System.out.println(ps.toString());
+                ps.setInt(2, Integer.parseInt(jTxtFldCant1.getText()));
+                    System.out.println(ps.toString());
+                ps.setString(3, jTxtFldNombre1.getText());
+                    System.out.println(ps.toString());
+                ps.setString(4, jCBCond.getSelectedItem().toString());
+                    System.out.println(ps.toString());
+                ps.setString(5, jTxtDesc.getText());
+                    System.out.println(ps.toString());
+                ps.setInt(6, getCatHerramienta(JCBCat.getSelectedItem().toString()));
+                    System.out.println(ps.toString());
+                
+                ps.executeUpdate();
 
-            cargarMateriales();
-            clearFields();
+                conn.commit();
+
+                cargarHerramientas();
+                clearFields1();
+            }
+            
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -276,17 +542,32 @@ public class Materiales extends javax.swing.JFrame {
     private void jBtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeleteActionPerformed
         // TODO add your handling code here:
         try {
-            String sql = "DELETE FROM material "
+            if(jRadioButton1.isSelected()){
+                String sql = "DELETE FROM material "
                     + "WHERE idmaterial = ?";
-            Connection conn = Conexion.GetConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            conn.setAutoCommit(false);
-            ps.setString(1, (String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-            ps.execute();
+                Connection conn = Conexion.GetConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                conn.setAutoCommit(false);
+                ps.setString(1, (String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+                ps.execute();
 
-            conn.commit();
-            cargarMateriales();
-            clearFields();
+                conn.commit();
+                cargarMateriales();
+                clearFields();
+            }else{
+                String sql = "DELETE FROM Herramienta "
+                    + "WHERE idHerramienta = ?";
+                Connection conn = Conexion.GetConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                conn.setAutoCommit(false);
+                ps.setString(1, (String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+                ps.execute();
+
+                conn.commit();
+                cargarMateriales();
+                clearFields1();
+            }
+            
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -296,8 +577,9 @@ public class Materiales extends javax.swing.JFrame {
     private void jBtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSaveActionPerformed
         // TODO add your handling code here:
         try {
-            String sql = "UPDATE material SET "
-                    + "idmaterial = ?, "
+            if(jRadioButton1.isSelected()){  
+            
+                 String sql = "UPDATE material SET "
                     + "nombre = ?, "
                     + "composicion = ?, "
                     + "estante = ?, "
@@ -305,30 +587,141 @@ public class Materiales extends javax.swing.JFrame {
                     + "cantidadgramos = ?, "
                     + "categoriamaterial_idcategoriamaterial = ? "
                     + "WHERE idmaterial = ?";
-            Connection conn = Conexion.GetConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            conn.setAutoCommit(false);
+                Connection conn = Conexion.GetConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                conn.setAutoCommit(false);
 
-            ps.setString(1, jTxtFldId.getText());
-            ps.setString(2, jTxtFldNombre.getText());
-            ps.setString(3, jTxtFldComposicion.getText());
-            ps.setString(4, jTxtFldEstante.getText());
-            ps.setString(5, jTxtFldUnidades.getText());
-            ps.setString(6, jTxtFldCant.getText());
-            ps.setInt(7, JCBCat.getSelectedIndex() + 1);
-            ps.setString(8, (String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-            ps.executeUpdate();
+                //ps.setString(1, jTxtFldId.getText());
+                ps.setString(1, jTxtFldNombre.getText());
+                ps.setString(2, jTxtFldComposicion.getText());
+                ps.setString(3, jTxtFldEstante.getText());
+                ps.setString(4, jTxtFldUnidades.getText());
+                ps.setString(5, jTxtFldCant.getText());
+                ps.setInt(6, getCatMaterial(JCBCat.getSelectedItem().toString()));
+                ps.setInt(7, Integer.parseInt((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0)));
+                System.out.println(ps.toString());
+                ps.executeUpdate();
             
-            conn.commit();
+                conn.commit();
             
-            cargarMateriales();
-            clearFields();
+                cargarMateriales();
+                clearFields();
+            }else{
+                //"idHerramienta, idInventario_Uach,Nombre,Cantidad,Observaciones_Generales,Condicion";
+                String sql = "UPDATE Herramienta SET "
+                    + "idInventario_Uach = ?, "
+                    + "Cantidad = ?, "
+                    + "Nombre = ?, "
+                    + "Condicion = ?, "
+                    + "Observaciones_Generales = ?, "
+                    + "CategoriaHerramienta_idCategoriaHerramienta = ? "
+                    + "WHERE idHerramienta = ? ";
 
+                Connection conn = Conexion.GetConnection();
+                conn.setAutoCommit(false);
+                PreparedStatement ps = conn.prepareStatement(sql);
+
+                //ps.setString(1, jTxtFldId1.getText());
+                ps.setString(1, jTxtFldUach.getText());
+                ps.setInt(2, Integer.parseInt(jTxtFldCant1.getText()));
+                ps.setString(3, jTxtFldNombre1.getText());
+                ps.setString(4, jCBCond.getSelectedItem().toString());
+                ps.setString(5, jTxtDesc.getText());
+                ps.setInt(6, getCatHerramienta(JCBCat.getSelectedItem().toString()));
+                ps.setInt(7, Integer.parseInt((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0)));
+            
+                ps.executeUpdate();
+            
+                conn.commit();
+            
+                cargarHerramientas();
+                clearFields1();
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_jBtnSaveActionPerformed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButton2.isSelected()){
+            jRadioButton2.setSelected(false);
+        }
+        jTabbedPane1.setSelectedIndex(0);
+        jTabbedPane1.setEnabledAt(1, false);
+        jTabbedPane1.setEnabledAt(0, true);
+        
+        cargarMateriales();
+        fillCombo();
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButton1.isSelected()){
+            jRadioButton1.setSelected(false);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setEnabledAt(0, false);
+        jTabbedPane1.setEnabledAt(1, true);
+        
+        cargarHerramientas();
+        fillCombo();
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        CategoriaMaterial catMat = new CategoriaMaterial();
+        catMat.show(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+            System.exit(0);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        CategoriaHerramienta catHerr = new CategoriaHerramienta();
+        catHerr.show(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    public void cargarHerramientas() {
+        try {
+            Connection conn = Conexion.GetConnection();
+            Statement st = conn.createStatement();
+            
+            try {
+                st = conn.createStatement();
+                rs1 = st.executeQuery("Select idHerramienta, idInventario_Uach,Nombre,Cantidad,Observaciones_Generales,Condicion From Herramienta");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, e.getErrorCode() + ": " + e.getMessage());
+            }
+
+            String[] columns = {
+                "ID", "ID Uach", "Nombre", "Cantidad", "Descripcion", "Condiciones"
+            };
+
+            DefaultTableModel tm = new DefaultTableModel(null, columns) {
+                @Override
+                public boolean isCellEditable(int rowIndex, int colIndex) {
+                    return false;
+                }
+            };
+
+            while (rs1.next()) {
+                String[] row = {
+                    rs1.getString(1), rs1.getString(2), rs1.getString(3), rs1.getString(4), rs1.getString(5), rs1.getString(6)
+                };
+
+                tm.addRow(row);
+            }
+            jTable1.setModel(tm);
+        } catch (SQLException e) {
+            Logger.getLogger(this.getName()).log(Level.SEVERE, null, e.getMessage());
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+    
     public void cargarMateriales() {
         try {
             Connection conn = Conexion.GetConnection();
@@ -371,23 +764,30 @@ public class Materiales extends javax.swing.JFrame {
         jTxtFldCant.setText("");
         jTxtFldComposicion.setText("");
         jTxtFldEstante.setText("");
-        jTxtFldId.setText("");
+//        jTxtFldId.setText("");
         jTxtFldNombre.setText("");
         jTxtFldUnidades.setText("");
     }
 
     public void fillCombo() {
+        
         try {
-            Connection conn = Conexion.GetConnection();
-            String sql = "SELECT Nombre FROM categoriamaterial";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                String name = rs.getString(1);
-                JCBCat.addItem(name);
+            JCBCat.removeAllItems();
+            String sql;
+            if(jRadioButton1.isSelected()){
+                sql = "SELECT Nombre FROM categoriaMaterial";
+            }else{
+                sql = "SELECT Nombre FROM categoriaHerramienta";
             }
-            conn.close();
+            try (Connection conn = Conexion.GetConnection()) {
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                
+                while (rs.next()) {
+                    String name = rs.getString(1);
+                    JCBCat.addItem(name);
+                }
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -423,7 +823,14 @@ public class Materiales extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Materiales().setVisible(true);
+                
+                try {
+                    Thread.sleep(1000);
+                    new Materiales().setVisible(true);
+                    Connection conn = Conexion.GetConnection();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
             }
         });
     }
@@ -433,22 +840,44 @@ public class Materiales extends javax.swing.JFrame {
     private javax.swing.JButton jBtnDelete;
     private javax.swing.JButton jBtnNew;
     private javax.swing.JButton jBtnSave;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox jCBCond;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTxtDesc;
     private javax.swing.JTextField jTxtFldCant;
+    private javax.swing.JTextField jTxtFldCant1;
     private javax.swing.JTextField jTxtFldComposicion;
     private javax.swing.JTextField jTxtFldEstante;
-    private javax.swing.JTextField jTxtFldId;
     private javax.swing.JTextField jTxtFldNombre;
+    private javax.swing.JTextField jTxtFldNombre1;
+    private javax.swing.JTextField jTxtFldUach;
     private javax.swing.JTextField jTxtFldUnidades;
     // End of variables declaration//GEN-END:variables
 }

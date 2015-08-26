@@ -143,20 +143,7 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() 
             {
-                try {
-                    Thread.sleep(4500);
-                } catch (Exception e) {
-                    
-                }
                 
-                try {
-                    Login sp = new Login();
-                sp.getContentPane().setBackground(Color.white);
-                sp.setVisible(true);
-                    Connection conn = Conexion.GetConnection();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
                 
             }
         });

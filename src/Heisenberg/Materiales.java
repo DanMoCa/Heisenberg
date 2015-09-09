@@ -208,7 +208,7 @@ public class Materiales extends javax.swing.JFrame {
 
         jLabel6.setText("Unidades Disponibles");
 
-        jLabel7.setText("Cantidad en Gramos");
+        jLabel7.setText("Unidad de Medición (mg, ml, etc.)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,7 +229,7 @@ public class Materiales extends javax.swing.JFrame {
                     .addComponent(jTxtFldEstante)
                     .addComponent(jTxtFldUnidades)
                     .addComponent(jTxtFldCant, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

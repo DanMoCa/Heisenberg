@@ -736,7 +736,7 @@ public class Materiales extends javax.swing.JFrame {
                     + "cantidadgramos "
                     + "FROM material");
             String[] columns = {
-                "ID", "Nombre", "Composicion", "Estante", "Unidades disponibles (frascos/contenedores)", "Cantidad gramos"
+                "ID", "Nombre", "Composicion", "Estante", "Cantidad", "Unidad de Medición"
             };
 
             DefaultTableModel tm = new DefaultTableModel(null, columns) {

@@ -345,7 +345,12 @@ public class Materiales extends javax.swing.JFrame {
 
         jMenu1.setText("File");
 
-        jMenuItem4.setText("jMenuItem4");
+        jMenuItem4.setText("Acerca de.");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
         jMenu1.add(jSeparator1);
 
@@ -673,6 +678,8 @@ public class Materiales extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         CategoriaMaterial catMat = new CategoriaMaterial();
+        ImageIcon img = new ImageIcon("src/Heisenberg/HB.png");
+        catMat.setIconImage(img.getImage());                
         catMat.show(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -684,12 +691,25 @@ public class Materiales extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         CategoriaHerramienta catHerr = new CategoriaHerramienta();
+        ImageIcon img = new ImageIcon("src/Heisenberg/HB.png");
+        catHerr.setIconImage(img.getImage());
         catHerr.show(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        About abW = new About();
+        ImageIcon img = new ImageIcon("src/Heisenberg/HB.png");
+        abW.setIconImage(img.getImage());
+        abW.show(true);                
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     public void cargarHerramientas() {
         try {
             Connection conn = Conexion.GetConnection();
+            if(conn == null){
+                System.exit(0);
+            }
             Statement st = conn.createStatement();
             
             try {

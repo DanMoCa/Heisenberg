@@ -23,8 +23,8 @@ public class Conexion {
         {
             Class.forName("com.mysql.jdbc.Driver");
             String servidor = "jdbc:mysql://localhost/quimicas";
-            String usuarioDB="user";
-            String passwordDB="123";
+            String usuarioDB="quimicas";
+            String passwordDB="fing123";
             conexion= DriverManager.getConnection(servidor,usuarioDB,passwordDB);
         }
         catch(ClassNotFoundException ex)
